@@ -1,0 +1,99 @@
+    :root {
+      --front-color: #3885E9;
+      --back-color: rebeccapurple;
+      --card-height: 180px;
+      --gap-size: 20px;
+      --grid-max-width: 1200px;
+      --side-margin: 15px;
+      --title-color: white;
+      --subtitle-color: #666;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: black;
+      font-family: Arial, sans-serif;
+      padding: 20px 0;
+      color: var(--title-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      padding: 0 var(--side-margin);
+    }
+
+    .header h1 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 1rem;
+      color: var(--subtitle-color);
+    }
+
+    .grid-container {
+      width: calc(100% - (var(--side-margin) * 2));
+      max-width: var(--grid-max-width);
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: var(--gap-size);
+    }
+
+    .card-container {
+      perspective: 800px;
+    }
+
+    .card {
+      width: 100%;
+      height: var(--card-height);
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+      cursor: pointer;
+    }
+
+    .card-container:hover .card {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      color: #fff;
+      font-size: 1rem;
+      padding: 10px;
+    }
+
+    .card-front {
+      background-color: var(--front-color);
+    }
+
+    .card-back {
+      background-color: var(--back-color);
+      transform: rotateY(180deg);
+    }
+
+    .card-red {
+        background-color: red !important;
+    }
+    .teamo {
+        color: red;
+        font-weight: 900px;
+    }
