@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="header">
-      <img src="banner.svg" alt="" width="1200px" height="auto">
+      <img class="banner" src="banner.svg" alt=""">
   </div>
 
 
@@ -351,18 +351,15 @@
   <br>
   <br>
   <br>
-<h1 style="text-align:center;">Carrusel de fotitos nuestras</h1>
+<h1 style="text-align:center;">Fotitos nuestras</h1>
 
 <div class="slider">
   <button class="prev" aria-label="Anterior">❮</button>
   <div class="slider-imgs">
-    <!-- Imagen horizontal -->
-    <img src="Foto-1-H.jpg" alt="" />
-    <!-- Imagen vertical -->
-    <img src="Foto-1-V.jpg" alt="" />
-    <img src="Foto-2-H.jpg" alt="" />
-    <img src="Foto-3-H.jpg" alt="" />
-
+    <img src="Foto-1-H.jpg" alt=""/>
+    <img src="Foto-1-V.jpg" alt=""/>
+    <img src="Foto-2-H.jpg" alt=""/>
+    <img src="Foto-3-H.jpg" alt=""/>
   </div>
   <button class="next" aria-label="Siguiente">❯</button>
 </div>
@@ -383,13 +380,32 @@
     index--;
     if (index < 0) index = imgs.length - 1;
     showImage(index);
+    resetAutoplay();
   });
   
   next.addEventListener('click', () => {
     index++;
     if (index >= imgs.length) index = 0;
     showImage(index);
+    resetAutoplay();
   });
+  
+  // Autoplay cada 10 segundos
+  let autoplay = setInterval(() => {
+    index++;
+    if (index >= imgs.length) index = 0;
+    showImage(index);
+  }, 10000);
+  
+  // Reinicia el autoplay al usar flechas para evitar choque
+  function resetAutoplay() {
+    clearInterval(autoplay);
+    autoplay = setInterval(() => {
+      index++;
+      if (index >= imgs.length) index = 0;
+      showImage(index);
+    }, 10000);
+  }
 </script>
 
   <p class="titulo-footer">Perdon por hacer detalles así, pero me parecia mas original :)</p>
