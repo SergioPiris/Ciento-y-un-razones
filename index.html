@@ -346,6 +346,53 @@
       </div>
     </div>
   </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+<h1 style="text-align:center;">Carrusel de fotitos nuestras</h1>
+
+<div class="slider">
+  <button class="prev" aria-label="Anterior">❮</button>
+  <div class="slider-imgs">
+    <!-- Imagen horizontal -->
+    <img src="Foto-1-H.jpg" alt="" />
+    <!-- Imagen vertical -->
+    <img src="Foto-1-V.jpg" alt="" />
+    <img src="Foto-2-H.jpg" alt="" />
+    <img src="Foto-3-H.jpg" alt="" />
+
+  </div>
+  <button class="next" aria-label="Siguiente">❯</button>
+</div>
+
+<script>
+  const sliderImgs = document.querySelector('.slider-imgs');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+  const imgs = document.querySelectorAll('.slider-imgs img');
+  
+  let index = 0;
+  
+  function showImage(id) {
+    sliderImgs.style.transform = `translateX(${-id * 100}%)`;
+  }
+  
+  prev.addEventListener('click', () => {
+    index--;
+    if (index < 0) index = imgs.length - 1;
+    showImage(index);
+  });
+  
+  next.addEventListener('click', () => {
+    index++;
+    if (index >= imgs.length) index = 0;
+    showImage(index);
+  });
+</script>
+
   <p class="titulo-footer">Perdon por hacer detalles así, pero me parecia mas original :)</p>
+
 </body>
 </html>
