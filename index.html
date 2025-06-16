@@ -8,16 +8,42 @@
 
 </head>
 <body>
-  <div class="header">
+    <div class="header">
     <h1>30 Razones por las que <span class="teamo">te amo</span> y 1 por la que te dejaría</h1>
     <p>Cada mes añadiré 25 más</p>
   </div>
+
+
+<div class="player-wrapper">
+  <span>Reproducir música -></span>
+  <div id="player" class="player">
+    <span>►</span><!-- icono de reproducir -->
+  </div>
+</div>
+
+<audio id="audio" src="Perfect Symphony.mp3" loop></audio>
+
+<script>
+  const player = document.getElementById('player');
+  const audio = document.getElementById('audio');
+  
+  player.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      player.classList.add('active');
+      player.querySelector('span').textContent = '❚❚';
+    } else {
+      audio.pause();
+      player.classList.remove('active');
+      player.querySelector('span').textContent = '►';
+    }
+  });
+</script>
   <div class="grid-container">
     <div class="card-container">
       <div class="card">
         <div class="card-face card-front"><p>Razón: 1</p></div>
         <div class="card-face card-back"><p>Eres todo lo que quiero en la vida</p></div>
-        <audio src="Perfect Symphony.mp3" autoplay loop></audio>
       </div>
     </div>
     <div class="card-container">
@@ -299,14 +325,14 @@
                     <div class="card-container">
       <div class="card">
         <div class="card-face card-front"><p>Razón: 49</p></div>
-        <div class="card-face card-back"><p>Simplemente porque eres tú</p></div>
+        <div class="card-face card-back"><p>Porque eres la cosa mas mona, tierna, adorable y cute que existe</p></div>
       </div>
     </div>
     
             <div class="card-container">
       <div class="card">
         <div class="card-face card-front"><p>Razón: 50</p></div>
-        <div class="card-face card-back"><p>Porque eres la cosa mas mona, tierna, adorable y cute que existe</p></div>
+        <div class="card-face card-back"><p>Simplemente porque eres tú,<br>te amo</p></div>
       </div>
     </div>
 

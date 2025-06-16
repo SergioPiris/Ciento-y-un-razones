@@ -97,3 +97,40 @@
         color: red;
         font-weight: 900px;
     }
+
+     .player-wrapper {
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .player {
+    width: 40px;
+    height: 40px;
+    background: #4c9eff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgb(0 0 0 / 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .player.active {
+    transform: scale(1.1);
+    background: #007fff;
+  }
+  
+  .player span {
+    font-size: 20px;
+    color: #fff;
+    user-select: none;
+  }
+
+  .titulo-footer {
+    color: var(--subtitle-color);
+    margin: 25px;
+    text-align: center;
+  }
