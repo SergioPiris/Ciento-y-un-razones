@@ -274,3 +274,61 @@
       background-color: var(--front-color);
       transform: rotateY(180deg);
     }
+
+      .missions-container {
+    background: #fff5f8;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+  .missions-container h2 {
+    font-family: 'Cookie', cursive;
+    font-size: 2rem;
+    color: #e63946;
+    margin-bottom: 1.5rem;
+  }
+  .missions-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .mission-item {
+    background: #ffe3e3;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: transform 0.2s;
+  }
+  .mission-item:hover {
+    transform: translateY(-4px);
+  }
+  .mission-checkbox {
+    display: none;
+  }
+  .mission-text {
+    position: relative;
+    padding-left: 2rem;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+  }
+  .mission-text::before {
+    content: '\2661'; /* corazón vacío */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+    color: #e63946;
+    transition: transform 0.2s;
+  }
+  .mission-checkbox:checked + .mission-text::before {
+    content: '\2665'; /* corazón lleno */
+    transform: scale(1.2);
+  }
+  .mission-checkbox:checked + .mission-text {
+    text-decoration: line-through;
+    color: #999;
+  }

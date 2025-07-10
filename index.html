@@ -519,6 +519,41 @@
   <br>
   <br>
   <br> -->
+
+  <section id="misiones-amorosas" class="missions-container">
+  <h2>Posibles citas 💌</h2>
+  <ul class="missions-list">
+    <li class="mission-item">
+      <label>
+        <input type="checkbox" class="mission-checkbox" data-id="1">
+        <span class="mission-text">Muñecos de plastilina</span>
+      </label>
+    </li>
+    <li class="mission-item">
+      <label>
+        <input type="checkbox" class="mission-checkbox" data-id="2">
+        <span class="mission-text">Merienda de helados</span>
+      </label>
+    </li>
+    <li class="mission-item">
+      <label>
+        <input type="checkbox" class="mission-checkbox" data-id="3">
+        <span class="mission-text">Cita de dibujos</span>
+      </label>
+    </li>
+    <li class="mission-item">
+      <label>
+        <input type="checkbox" class="mission-checkbox" data-id="3">
+        <span class="mission-text">Noche de pelis</span>
+      </label>
+    </li>  </ul>
+</section>
+
+<br>
+<br>
+<br>
+<br>
+
 <h1 style="text-align:center;">Fotitos nuestras</h1>
 
 <div class="slider">
@@ -540,6 +575,9 @@
   </div>
   <button class="next" aria-label="Siguiente">❯</button>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
 
 <script>
   const sliderImgs = document.querySelector('.slider-imgs');
@@ -583,6 +621,44 @@
       showImage(index);
     }, 10000);
   }
+</script>
+
+<script>
+  window.addEventListener('load', () => {
+    // lanza varios ráfagas de confeti
+        confetti({
+      shapes: ['heart'],
+      colors: ['#ff9aa2', '#ffb7b2', '#ffdac1'],
+      particleCount: 200,
+      spread: 120
+    });
+  });
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('.mission-checkbox');
+
+    // Cargar estado guardado
+    checkboxes.forEach(cb => {
+      const id = cb.dataset.id;
+      const saved = localStorage.getItem('mission_' + id);
+      if (saved === 'done') cb.checked = true;
+    });
+
+    // Escuchar cambios
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const id = cb.dataset.id;
+        if (cb.checked) {
+          localStorage.setItem('mission_' + id, 'done');
+        } else {
+          localStorage.removeItem('mission_' + id);
+        }
+      });
+    });
+  });
 </script>
 
   <p class="titulo-footer">Perdon por hacer detalles así, pero me parecia mas original :)</p>
